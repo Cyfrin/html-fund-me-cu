@@ -24,7 +24,7 @@ If you can't or don't want to run and install locally, you can work with this re
 
 ```
 git clone https://github.com/Cyfrin/html-fund-me-f23
-cd html-fund-me-fcc
+cd html-fund-me-f23
 ```
 
 2. Run the file.
