@@ -27,9 +27,9 @@ git clone https://github.com/Cyfrin/html-fund-me-f23
 cd html-fund-me-f23
 ```
 
-2. Run the file.
+2. Run the `index.html` file
 
-You can usually just double click the file to "run it in the browser". Or you can right click the file in your VSCode and run "open with live server".
+You can usually just double click the file to "run it in the browser". Or you can right click the file in your VSCode and run "open with live server" if you have the live server VSCode extension (ritwickdey.LiveServer).
 
 And you should see a small button that says "connect".
 
