@@ -1,4 +1,4 @@
-import { ethers } from "./ethers-5.6.esm.min.js"
+import { ethers } from "./ethers-6.7.esm.min.js"
 import { abi, contractAddress } from "./constants.js"
 
 const connectButton = document.getElementById("connectButton")
@@ -28,14 +28,15 @@ async function connect() {
 async function withdraw() {
   console.log(`Withdrawing...`)
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider = new ethers.BrowserProvider(window.ethereum)
     await provider.send('eth_requestAccounts', [])
-    const signer = provider.getSigner()
+    const signer = await provider.getSigner()
     const contract = new ethers.Contract(contractAddress, abi, signer)
     try {
+      console.log("Processing transaction...")
       const transactionResponse = await contract.withdraw()
-      await listenForTransactionMine(transactionResponse, provider)
-      // await transactionResponse.wait(1)
+      await transactionResponse.wait(1)
+      console.log("Done!")
     } catch (error) {
       console.log(error)
     }
@@ -48,11 +49,12 @@ async function fund() {
   const ethAmount = document.getElementById("ethAmount").value
   console.log(`Funding with ${ethAmount}...`)
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const signer = provider.getSigner()
+    const provider = new ethers.BrowserProvider(window.ethereum)
+    await provider.send('eth_requestAccounts', [])
+    const signer = await provider.getSigner()
     const contract = new ethers.Contract(contractAddress, abi, signer)
     try {
-      const transactionResponse = await contract.fund({
+      const transactionResponse = await contract.fund(2, "0x0000000000000000000000000000000000000000", {
         value: ethers.utils.parseEther(ethAmount),
       })
       await listenForTransactionMine(transactionResponse, provider)
@@ -76,16 +78,4 @@ async function getBalance() {
   } else {
     balanceButton.innerHTML = "Please install MetaMask"
   }
-}
-
-function listenForTransactionMine(transactionResponse, provider) {
-  console.log(`Mining ${transactionResponse.hash}`)
-  return new Promise((resolve, reject) => {
-    provider.once(transactionResponse.hash, (transactionReceipt) => {
-      console.log(
-        `Completed with ${transactionReceipt.confirmations} confirmations. `
-      )
-      resolve()
-    })
-  })
 }
