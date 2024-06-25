@@ -57,7 +57,7 @@ async function fund() {
       const transactionResponse = await contract.fund(2, "0x0000000000000000000000000000000000000000", {
         value: ethers.utils.parseEther(ethAmount),
       })
-      await listenForTransactionMine(transactionResponse, provider)
+      await transactionResponse.wait(1)
     } catch (error) {
       console.log(error)
     }
