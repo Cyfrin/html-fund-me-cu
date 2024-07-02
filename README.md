@@ -1,4 +1,4 @@
-# html-fund-me-f23
+# html-fund-me-cu
 
 *[⭐️ (2:37:02) | Lesson 8: HTML Fund Me](https://www.youtube.com/watch?v=sas02qSFZ74&t=9422s)*
 
@@ -25,15 +25,15 @@ This is a minimalistic example what you can find in the [metamask docs](https://
 
 If you can't or don't want to run and install locally, you can work with this repo in Gitpod. If you do this, you can skip the `clone this repo` part.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/PatrickAlphaC/html-fund-me-f23)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/PatrickAlphaC/html-fund-me-cu)
 
 # Quickstart 
 
 1. Clone the repo
 
 ```
-git clone https://github.com/Cyfrin/html-fund-me-f23
-cd html-fund-me-f23
+git clone https://github.com/Cyfrin/html-fund-me-cu
+cd html-fund-me-cu
 ```
 
 2. Run the `index.html` file
@@ -55,8 +55,8 @@ Make sure you have the following installed:
 1. You'll need to open up a second terminal and run:
 
 ```
-git clone https://github.com/Cyfrin/foundry-fund-me-f23
-cd foundry-fund-me-f23
+git clone https://github.com/Cyfrin/foundry-fund-me-cu
+cd foundry-fund-me-cu
 make build
 make anvil
 ```
