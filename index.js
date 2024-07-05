@@ -55,7 +55,7 @@ async function fund() {
     const contract = new ethers.Contract(contractAddress, abi, signer)
     try {
       const transactionResponse = await contract.fund(2, "0x0000000000000000000000000000000000000000", {
-        value: ethers.utils.parseEther(ethAmount),
+        value: ethers.parseEther(ethAmount),
       })
       await transactionResponse.wait(1)
     } catch (error) {
@@ -68,10 +68,10 @@ async function fund() {
 
 async function getBalance() {
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider = new ethers.BrowserProvider(window.ethereum)
     try {
       const balance = await provider.getBalance(contractAddress)
-      console.log(ethers.utils.formatEther(balance))
+      console.log(ethers.formatEther(balance))
     } catch (error) {
       console.log(error)
     }
