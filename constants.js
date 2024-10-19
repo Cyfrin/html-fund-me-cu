@@ -35,18 +35,7 @@ export const abi = [
     type: "function"
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address"
-      }
-    ],
+    inputs: [],
     name: "fund",
     outputs: [],
     stateMutability: "payable",

@@ -54,7 +54,7 @@ async function fund() {
     const signer = await provider.getSigner()
     const contract = new ethers.Contract(contractAddress, abi, signer)
     try {
-      const transactionResponse = await contract.fund(2, "0x0000000000000000000000000000000000000000", {
+      const transactionResponse = await contract.fund({
         value: ethers.parseEther(ethAmount),
       })
       await transactionResponse.wait(1)

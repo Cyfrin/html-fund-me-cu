@@ -4,7 +4,7 @@
 
 This is a minimalistic example what you can find in the [metamask docs](https://docs.metamask.io/guide/create-dapp.html#basic-action-part-1).
 
-- [html-fund-me-f23](#html-fund-me-f23)
+- [html-fund-me-cu](#html-fund-me-cu)
 - [Requirements](#requirements)
     - [Optional Gitpod](#optional-gitpod)
 - [Quickstart](#quickstart)
@@ -48,9 +48,9 @@ Hit it, and you should see metamask pop up.
 
 ## Execute a transaction - Local EVM
 
-If you want to execute a transaction follow this:
+If you want to execute a transaction follow this, you'll need to setup a chain. We have support for both foundry and moccasin. 
 
-Make sure you have the following installed:
+> Foundry
 
 1. You'll need to open up a second terminal and run:
 
@@ -66,7 +66,23 @@ Then, in a second terminal
 make deploy
 ```
 
-This will deploy a sample contract and start a local hardhat blockchain.
+> Moccasin
+
+Or, if you use [moccasin](https://github.com/Cyfrin/moccasin), you can run 
+```
+git clone https://github.com/Cyfrin/buy-me-a-coffee-cu
+cd buy-me-a-coffee-cu
+anvil
+```
+
+Then, in a second terminal
+```
+just deploy
+```
+
+This will deploy a sample contract and start a local hardhat blockchain. 
+
+After you've deployed with either foundry or moccasin, you can should then:
 
 2. Update your `constants.js` with the new contract address.
 
@@ -81,11 +97,13 @@ In the output of the above command, take one of the private key accounts and [im
 
 Additionally, add your localhost with chainid 31337 to your metamask.
 
-1. Refresh the front end, input an amount in the text box, and hit `fund` button after connecting
+4. Refresh the front end, input an amount in the text box, and hit `fund` button after connecting
 
 ## Execute a transaction - zkSync
 
 If you want to execute a transaction follow this:
+
+> Foundry
 
 1. Open up the `foundry-fund-me-f23` repo, and run a local zkSync node.
 
@@ -107,6 +125,20 @@ make deploy-zk
 ```
 
 This will deploy a sample contract and start a local zkSync node.
+
+> Moccasin
+
+Or, if you use [moccasin](https://github.com/Cyfrin/moccasin), you can run 
+```
+git clone https://github.com/Cyfrin/buy-me-a-coffee-cu
+cd buy-me-a-coffee-cu
+era_test_node
+```
+
+Then, in a second terminal
+```
+just deploy-zk
+```
 
 1. Update your `constants.js` with the new contract address.
 
