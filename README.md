@@ -77,7 +77,7 @@ anvil
 
 Then, in a second terminal
 ```
-mox run deploy
+mox run deploy --network anvil
 ```
 
 This will deploy a sample contract and start a local hardhat blockchain. 
