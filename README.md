@@ -132,7 +132,7 @@ Or, if you use [moccasin](https://github.com/Cyfrin/moccasin), you can run
 ```
 git clone https://github.com/Cyfrin/buy-me-a-coffee-cu
 cd buy-me-a-coffee-cu
-era_test_node
+anvil-zksync
 ```
 
 Then, in a second terminal
